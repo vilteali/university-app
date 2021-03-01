@@ -11,25 +11,29 @@
 	<link type="text/css" rel="stylesheet" 
 		href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"/>
 	<link type="text/css" rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/home.css"/>
+		href="${pageContext.request.contextPath}/resources/css/login.css"/>
 </head>
 <body>
 	<div class="main">
-		<form action="/home" method="post">
-		<div class="container-fluid">
-			<div class="text-center">
-    			<img src="${pageContext.request.contextPath}/resources/img/avatarLogin2.png" 
-    			 alt="Avatar" class="avatar">
-  			</div>
-			<label for="usuario"><b>Usuario</b></label> <input type="text" 
-			placeholder="Ingrese su usuario" name="usuario" required />
-			
-			<label for="password"><b>Contrase&ntilde;a</b></label> <input type="password"
-			placeholder="Ingrese su contrase&ntilde;a" name="password" required />			 
-			
-			<button type="submit">Login</button> 
-		
-		</div>
+		<form action="validar" method="post">
+			<input type="hidden" id="id" name="id"
+				value="<c:out value='${modelo.usuario.id}'/>" />
+			<div class="container-fluid">
+				<div class="text-center">
+					<img
+						src="${pageContext.request.contextPath}/resources/img/avatarLogin2.png"
+						alt="Avatar" class="avatar">
+				</div>
+				<label for="usuario"><b>Usuario</b></label> 
+					<input type="text" placeholder="Ingrese su usuario" name="usuario"
+						value="<c:out value="${modelo.nombre}" />" /> 
+						
+					<label for="clave"><b>Contrase&ntilde;a</b></label> 
+					<input type="password" placeholder="Ingrese su contrase&ntilde;a"
+						name="clave" value="<c:out value="${modelo.clave}" />" />
+				<button type="submit" name="submit">Login</button>
+
+			</div>
 		</form>
 	</div>
 </body>

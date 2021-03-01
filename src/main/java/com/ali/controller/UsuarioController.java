@@ -4,20 +4,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ali.model.Usuario;
 import com.ali.service.UsuarioService;
 
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
 	
-//	@Autowired
-//	private UsuarioService usuarioService;
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	@GetMapping("/login")
 	public String login(Model model) {
-		return "login";
+		
+		return "home";
+	}
+	
+	@PostMapping("/validar")
+	public String validar(Model model, @RequestParam (required=false) Long id,
+		@RequestParam String usuario, @RequestParam (required=false) String clave) {
+		
+		Usuario user = usuarioService.validarUsuario(usuario, clave);
+		
+		if(user != null) {
+			return "redirect:/usuario/home";
+		} else {
+			
+			return "redirect:/usuario/login";
+		}
+		
 	}
 	
 	@GetMapping("/home")

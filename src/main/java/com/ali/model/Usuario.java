@@ -27,8 +27,8 @@ public class Usuario {
 	@Column(name="apellido")
 	private String apellido;
 	
-	@Column(name="password")
-	private String password;
+	@Column(name="clave")
+	private String clave;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="id_usuario_tipo")
@@ -52,11 +52,11 @@ public class Usuario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getPassword() {
-		return password;
+	public String getClave() {
+		return clave;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 	public UsuarioTipo getUsuarioTipo() {
 		return usuarioTipo;
@@ -64,6 +64,5 @@ public class Usuario {
 	public void setUsuarioTipo(UsuarioTipo usuarioTipo) {
 		this.usuarioTipo = usuarioTipo;
 	}
-	
 	
 }

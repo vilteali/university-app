@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table(name="materia")
@@ -33,10 +32,10 @@ public class Materia {
 //	@JoinColumn(name="id_profesor")
 //	private UsuarioProfesor profesor;
 	
-	@ManyToOne(cascade= {
-			CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH })
-	@JoinColumn(name="id_usuario_alumno")
-	private UsuarioAlumno usuarioAlumno;
+//	@ManyToOne(cascade= {
+//			CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH })
+//	@JoinColumn(name="id_usuario")
+//	private UsuarioAlumno usuarioAlumno;
 
 	public Integer getId() {
 		return id;
@@ -78,12 +77,12 @@ public class Materia {
 //		this.profesor = profesor;
 //	}
 
-	public UsuarioAlumno getUsuarioAlumno() {
-		return usuarioAlumno;
-	}
-
-	public void setUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
-		this.usuarioAlumno = usuarioAlumno;
-	}
+//	public UsuarioAlumno getUsuarioAlumno() {
+//		return usuarioAlumno;
+//	}
+//
+//	public void setUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
+//		this.usuarioAlumno = usuarioAlumno;
+//	}
 	
 }
