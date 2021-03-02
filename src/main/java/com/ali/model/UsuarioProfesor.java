@@ -1,16 +1,19 @@
 package com.ali.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="usuario_profesor")
+@PrimaryKeyJoinColumn(name="id_usuario")
 public class UsuarioProfesor extends Usuario {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private Integer id;
+//	@ManyToOne(cascade=CascadeType.ALL)
+//	@JoinColumn( name="id_usuario_tipo", nullable=false )
+//	private Usuario usuario;
 	
 }

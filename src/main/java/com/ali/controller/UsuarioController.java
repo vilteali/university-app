@@ -12,7 +12,6 @@ import com.ali.model.Usuario;
 import com.ali.service.UsuarioService;
 
 @Controller
-@RequestMapping("/usuario")
 public class UsuarioController {
 	
 	@Autowired
@@ -21,12 +20,12 @@ public class UsuarioController {
 	@GetMapping("/login")
 	public String login(Model model) {
 		
-		return "home";
+		return "login";
 	}
 	
 	@PostMapping("/validar")
-	public String validar(Model model, @RequestParam (required=false) Long id,
-		@RequestParam String usuario, @RequestParam (required=false) String clave) {
+	public String validar(Model model, @RequestParam String usuario, 
+			@RequestParam String clave) {
 		
 		Usuario user = usuarioService.validarUsuario(usuario, clave);
 		
@@ -37,6 +36,12 @@ public class UsuarioController {
 			return "redirect:/usuario/login";
 		}
 		
+	}
+	
+	@GetMapping("/register")
+	public String register(Model model) {
+		
+		return "register";
 	}
 	
 	@GetMapping("/home")

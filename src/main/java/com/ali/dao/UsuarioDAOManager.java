@@ -32,5 +32,4 @@ public class UsuarioDAOManager implements UsuarioDAO {
 		return user;
 	}
 
-
 }

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="usuario_tipo")
-public class UsuarioTipo {
+public class UsuarioTipo{
 	
 	public static final Long USUARIO_ADMINISTRADOR = 1L;
 	public static final Long USUARIO_PROFESOR = 2L;
@@ -22,4 +22,21 @@ public class UsuarioTipo {
 	
 	@Column(name="nombre")
 	private String nombre;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
 }

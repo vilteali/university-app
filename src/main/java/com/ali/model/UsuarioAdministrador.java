@@ -1,39 +1,19 @@
 package com.ali.model;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="usuario_administrador")
+@PrimaryKeyJoinColumn(name="id_usuario")
 public class UsuarioAdministrador extends Usuario {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private Integer id;
-	
-	@OneToOne(mappedBy="usuarioTipo")
-	private UsuarioTipo usuarioTipo;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public UsuarioTipo getUsuarioTipo() {
-		return usuarioTipo;
-	}
-
-	public void setUsuarioTipo(UsuarioTipo usuarioTipo) {
-		this.usuarioTipo = usuarioTipo;
-	}
+//	@ManyToOne(cascade=CascadeType.ALL)
+//	@JoinColumn( name="id_usuario_tipo", nullable=false )
+//	private Usuario usuario;
 	
 }

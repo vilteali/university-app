@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="main">
-		<form action="validar" method="post">
+		<form action="validar" method="POST">
 			<input type="hidden" id="id" name="id"
 				value="<c:out value='${modelo.usuario.id}'/>" />
 			<div class="container-fluid">
@@ -32,7 +32,7 @@
 					<input type="password" placeholder="Ingrese su contrase&ntilde;a"
 						name="clave" value="<c:out value="${modelo.clave}" />" />
 				<button type="submit" name="submit">Login</button>
-
+				<p class="text-align">No tienes cuenta? <a href="register">Registrate</a></p>
 			</div>
 		</form>
 	</div>

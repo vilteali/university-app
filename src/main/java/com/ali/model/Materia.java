@@ -1,18 +1,21 @@
 package com.ali.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+@Entity
 @Table(name="materia")
 public class Materia {
-	
-	public Materia() {}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,14 +31,17 @@ public class Materia {
 	@Column(name="cupo")
 	private Integer cupo;
 	
-//	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="id_profesor")
-//	private UsuarioProfesor profesor;
+	@Column(name="fecha")
+	private Timestamp fecha;
 	
-//	@ManyToOne(cascade= {
-//			CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH })
-//	@JoinColumn(name="id_usuario")
-//	private UsuarioAlumno usuarioAlumno;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="id_profesor")
+	private UsuarioProfesor profesor;
+
+	@ManyToOne(cascade= {
+			CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH })
+	@JoinColumn(name="id_alumno")
+	private UsuarioAlumno usuarioAlumno;
 
 	public Integer getId() {
 		return id;
@@ -69,20 +75,20 @@ public class Materia {
 		this.cupo = cupo;
 	}
 
-//	public UsuarioProfesor getProfesor() {
-//		return profesor;
-//	}
-//
-//	public void setProfesor(UsuarioProfesor profesor) {
-//		this.profesor = profesor;
-//	}
+	public UsuarioProfesor getProfesor() {
+		return profesor;
+	}
 
-//	public UsuarioAlumno getUsuarioAlumno() {
-//		return usuarioAlumno;
-//	}
-//
-//	public void setUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
-//		this.usuarioAlumno = usuarioAlumno;
-//	}
+	public void setProfesor(UsuarioProfesor profesor) {
+		this.profesor = profesor;
+	}
+
+	public UsuarioAlumno getUsuarioAlumno() {
+		return usuarioAlumno;
+	}
+
+	public void setUsuarioAlumno(UsuarioAlumno usuarioAlumno) {
+		this.usuarioAlumno = usuarioAlumno;
+	}
 	
 }

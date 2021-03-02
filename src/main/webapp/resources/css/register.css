@@ -1,0 +1,24 @@
+.container-fluid {
+  padding: 15px;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+img.avatar {
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
